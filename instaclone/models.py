@@ -11,6 +11,38 @@ class Image(models.Model):
     profile_foreign_key = models.ForeignKey('Profile', on_delete=models.CASCADE)
 
 
+    def __str__(self):
+        return self.image_name
+
+    def save_image(self):
+        '''
+        method saves image
+        '''
+        self.save()
+
+    def delete_image(self):
+        '''
+        method deletes image
+        '''
+        self.delete()
+
+    def update_caption(self, new_caption):
+        ''' 
+        method updates image caption 
+        '''
+        self.image_caption = new_caption
+        self.save()
+
+    @classmethod    
+    def get_user_images(cls, user_id):
+        ''' 
+        method retrieves all images
+        '''
+        all_images = Image.objects.filter(profile=user_id).all()
+        sort = sorted(all_images, key=lambda t: t.created_on)
+        return sort
+
+
 #  Profile Model
 
 class Profile(models.Model):
