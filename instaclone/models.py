@@ -14,5 +14,5 @@ class Image(models.Model):
 #  Profile Model
 
 class Profile(models.Model):
-    photo = models.ImageField(upload_to='avatars/')
-    bio = models.TextField() 
+    profile_photo = models.ImageField(upload_to='avatars/')
+    profile_bio = models.TextField() 
