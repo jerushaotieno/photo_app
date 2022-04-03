@@ -93,3 +93,37 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.user_profile.save()
+
+
+# Comments Model
+
+class Comments(models.Model):
+    user_name = models.ForeignKey('Profile', on_delete=models.CASCADE)
+    comment_details = models.TextField()
+    commented_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['commented_on']
+
+    def save_comment(self):
+        ''' 
+        saves a comment
+        '''
+        self.save()
+
+    def delete_comment(self):
+        '''
+        deletes a comment
+        '''
+        self.delete()
+
+    def edit_comment(self, new_comment):
+        '''
+        edits a comment
+        '''
+        self.comment_details = new_comment
+        self.save()
+
+    def __str__(self):
+        return 'Comment by {self.user_name}'
+
