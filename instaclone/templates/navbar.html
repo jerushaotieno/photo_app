@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/840px-Instagram_logo.svg.png" height="50px" width="120px" id="logo">
+            <input type="text" placeholder="search">
+            <nav>
+                <i class='fa fa-home'></i>
+                <i class='fa fa-paper-plane'></i>
+                <i class='fa fa-compass'></i>
+                <i class='fa fa-heart'></i>
+                <div id="user">
+                    <p>
+                        {% load static %} <img src="{% static "instaclone/media/instaclone1.jpg" %}" height="100px" width="100px" alt="navbar_pic"/>  
+                    </p>              
+                </div>
+            </nav>
+        </div>
+    </div>
+</nav>
+</body>
