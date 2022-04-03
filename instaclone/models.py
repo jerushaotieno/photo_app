@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -9,7 +10,12 @@ class Image(models.Model):
     image_name = models.CharField(max_length=30)
     image_caption = models.TextField()
     profile_foreign_key = models.ForeignKey('Profile', on_delete=models.CASCADE)
+    image_likes = models.ManyToManyField(User, blank=True)
+    image_comments = models.ForeignKey('Comments', on_delete=models.CASCADE)
+    published_on = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['?'] #order randomly on feed
 
     def __str__(self):
         return self.image_name
