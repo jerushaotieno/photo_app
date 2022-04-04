@@ -42,3 +42,30 @@ class TestImage(TestCase):
         '''
         self.test_image.save_image()
         self.assertEqual(len(Image.objects.all()), 1)
+
+
+# Profile Model Tests
+
+class ProfileTest(TestCase):
+    '''
+    test class for Profile model
+    '''
+    def setUp(self):
+        '''
+        method called before each test
+        '''
+        self.user = User.objects.create_user(user_name='Dino')
+
+    def tearDown(self):
+        '''
+        method clears all setup instances after running each test
+        '''
+        self.user.delete()
+
+    def test_user_profile_creation(self):
+        '''
+        tests that profile instance is created only once for eavery user
+        '''
+        self.assertIsInstance(self.user.user_profile, Profile)
+        self.user.save()
+        self.assertIsInstance(self.user.user_profile, Profile)

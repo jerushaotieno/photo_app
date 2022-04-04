@@ -13,7 +13,7 @@ class Image(models.Model):
     image_caption = models.TextField()
     profile_foreign_key = models.ForeignKey('Profile', on_delete=models.CASCADE)
     image_likes = models.ManyToManyField(User, blank=True)
-    image_comments = models.ForeignKey('Comments', on_delete=models.CASCADE)
+    image_comment = models.ForeignKey('Comments', on_delete=models.CASCADE, default='comments' )
     published_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -56,10 +56,10 @@ class Image(models.Model):
 class Profile(models.Model):
     user_profile = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_photo = models.ImageField(default='default.jpg', upload_to='avatars/')
-    profile_bio = models.TextField(max_length=500, blank=True, default=f'Hi, I am {User.username}')
+    profile_bio = models.TextField(max_length=500, blank=True, default=f'Hi, thanks for visiting my page. Follow me for awesome content!')
 
     def __str__(self):
-        return f'user_profile {self.user_profile.username}'
+        return f'{self.user_profile.username}'
 
     def save_user_profile(self):
         ''' 
@@ -67,15 +67,14 @@ class Profile(models.Model):
         '''
         self.save()
 
-    def delete_profile(self):
+    def delete_user_profile(self):
         '''
         deletes a user's profile 
         '''
         self.delete()
 
-    def update_profile_bio(self, user_profile_id, new_profile_bio):
+    def update_profile_bio(self, new_profile_bio):
         ''' method to update a users profile bio '''
-        user_profile = User.objects.get(id=user_profile_id)
         self.profile_bio = new_profile_bio
         self.save()
 
