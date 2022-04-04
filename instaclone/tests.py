@@ -12,16 +12,21 @@ class TestImage(TestCase):
         '''
         creates image instances called before each test case
         '''
-        self.test_user = User(username='Jay', password='code')
+        self.test_user = User(user_name='Jay', password='code')
         self.test_user.save()
-        self.test_profile = Profile(user=self.test_user, photo='avatars/anime.jpg')
 
-        self.test_comment = Comments(name=self.test_profile, comment_details='Sample comment', commented_on=datetime.now())
+        self.test_user_profile = User.objects.last().user_profile
+        self.test_user_profile.save()        
 
-        self.test_image = Image(image='images/test.jpg', image_caption='sample text', profile=self.test_profile, comments=self.test_comment, created_on=datetime.now())
+        self.test_comment = Comments(user_name=self.test_user_profile, comment_details='sample comment', commented_on=datetime.now())
+        self.test_comment.save()
+
+        self.test_image = Image(image='images/test.jpg', image_caption='sample text', profile_foreign_key=self.test_profile_profile_key, image_comments=self.test_image_comments, published_on=datetime.now())
 
     def test_instance(self):
-        ''' '''
+        '''
+        ensures image instance is created
+        '''
         self.assertTrue(isinstance(self.test_image, Image))
 
     def tearDown(self):
@@ -30,3 +35,10 @@ class TestImage(TestCase):
         Profile.objects.all().delete()
         Comments.objects.all().delete()
         Image.objects.all().delete() 
+
+    def test_save(self):
+        '''
+        saves instance to db
+        '''
+        self.test_image.save_image()
+        self.assertEqual(len(Image.objects.all()), 1)
