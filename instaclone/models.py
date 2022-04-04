@@ -127,3 +127,16 @@ class Comments(models.Model):
     def __str__(self):
         return 'Comment by {self.user_name}'
 
+
+
+# Follow User Model
+
+class FollowUser(models.Model):
+    follower = models.ForeignKey('Profile', related_name='following', on_delete=models.CASCADE)
+    following = models.ForeignKey('Profile', related_name='follower', on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('follower', 'following')
+
+    def __str__(self):
+        return '{self.follower} follows {self.following}'
