@@ -7,3 +7,7 @@ from django.http  import HttpResponse
 def welcome(request):
     return render(request, 'index.html')
 
+
+def user_profile(request):
+    return render(request, 'user_profile.html') 
+

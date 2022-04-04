@@ -17,9 +17,12 @@
                 <i class='fa fa-compass'></i>
                 <i class='fa fa-heart'></i>
                 <div id="user">
-                    <p>
-                        {% load static %} <img src="{% static "instaclone/media/instaclone1.jpg" %}" height="100px" width="100px" alt="navbar_pic"/>  
-                    </p>              
+                    <a href="{% url 'user_profile' %}">
+                        <p>
+                            {% load static %} <img src="{% static "instaclone/media/instaclone1.jpg" %}" height="100px" width="100px" alt="navbar_pic"/>  
+                            <p>View Profile</p>
+                        </p> 
+                    </a>                          
                 </div>
             </nav>
         </div>
