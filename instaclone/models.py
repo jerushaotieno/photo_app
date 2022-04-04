@@ -46,7 +46,7 @@ class Image(models.Model):
         ''' 
         method retrieves all images
         '''
-        all_images = Image.objects.filter(profile=user_id).all()
+        all_images = Image.objects.filter(user_profile=user_id).all()
         sorted_images = sorted(all_images, key=lambda t: t.published_on)
         return sorted_images
 
@@ -61,7 +61,7 @@ class Profile(models.Model):
     def __str__(self):
         return f'user_profile {self.user_profile.username}'
 
-    def save_image(self):
+    def save_user_profile(self):
         ''' 
         saves a user's profile 
         '''
