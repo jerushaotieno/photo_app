@@ -11,7 +11,7 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns=[
-    url('^$',views.user_feed,name = 'user_feed'),
+    url('^user_feed$',views.user_feed,name = 'user_feed'),
     url(r'^user_profile/$', views.user_profile, name='user_profile'),
     url('^search/', views.search, name='search'),
     path('accounts/', include('django_registration.backends.one_step.urls')),
@@ -21,7 +21,7 @@ urlpatterns=[
         name='django_registration_register'),
 
     path(r'logout/', auth_views.LogoutView.as_view(), name='logout'), 
-    path(r'login/', LoginView.as_view(), {"next_page": '/'}),
+    path(r'', LoginView.as_view(), {"next_page": '/'}),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
