@@ -1,13 +1,13 @@
 {% load static %}
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/840px-Instagram_logo.svg.png" height="50px" width="120px" id="logo">
+        <div class="navbar-header" style="display: flex; padding: 3% 5%; justify-content: space-between; ">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/840px-Instagram_logo.svg.png" alt="Avatar" height="50px" width="120px" id="logo">
             
             <div class="col-sm-4 col-md-4 navbar-right">
                 <form class="navbar-form" role="search" action="{% url 'search' %}">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search e.g. cloths, food, etc." name="instasearch">
+                        <input type="text" class="form-control" placeholder="Search" style="text-align: center; font-size: medium; height: 35px; width: 350px; background-color: #e9e6e6d8; border-style: hidden; border-radius: 5px;" name="instasearch" >
                     </div>
                 </form>
             </div>
@@ -15,7 +15,7 @@
             <div class="col-sm-4 col-md-4 navbar-right">
                 <a href="{% url 'user_profile' %}">
                     <p>
-                        {% load static %} <img src="{% static "instaclone/media/instaclone1.jpg" %}" height="100px" width="100px" alt="navbar_pic"/>  
+                        {% load static %} <img src="{% static "instaclone/media/instaclone1.jpg" %}" height="50px" width="50px" alt="navbar_pic"/>  
                         <p>View Profile</p>
                     </p> 
                 </a>                          

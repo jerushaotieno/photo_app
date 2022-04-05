@@ -1,0 +1,36 @@
+
+ 
+{% extends 'base.html' %} {% block content %}
+
+<div class="block">
+    <div class="row">
+        {% if result %}
+        <h2> {{result|length }} items found for '{{message}}' </h2>
+        {% else %}
+        <h2> 0 result found for '{{message}}' </h2>
+        {% endif %}
+    </div>
+
+    <div class="row">
+        <div class=col-md-4>
+            {% for item in result %}
+            <div class="thumbnail">
+                <img src="{{item.image_link.url}}" class="gallery-image" alt="">
+                {{item.title}}
+                {{item.description}}
+                {{item.category}}
+                {{item.location}}
+                {{item.published_date}}
+
+                <div class="caption">
+                    <ul>
+                        <li class="gallery-item-likes"><span class="visually-hidden"></span><i class="fa fa-tags fa-2x" aria-hidden="true"></i> {{item.category}} </li>
+                        <li class="gallery-item-comments"><span class="visually-hidden"></span><i class="fa fa-thumb-tack fa-2x" aria-hidden="true"></i> {{item.location}} </li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

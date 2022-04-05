@@ -2,41 +2,57 @@
 
 <!--  -->
 {% block content %} {{block.super}}
-<main>
-    <section>
-        <article id="post">
-            <div class="Instagram-card">
-                <div class="Instagram-card-header">
-                    <img src="/static/instaclone/media/pizza.jpg" class="Instagram-card-user-image" style="width: 440px; height: 653px;">
-                    <a class="Instagram-card-user-name" href="#"> jay_o </a>
-                    <a class="instagram-card-icon left" href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                </div>
 
-                <div class="Instagram-card-image">
-                    <img src= "https://images.pexels.com/photos/8753752/pexels-photo-8753752.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" style="width: 440px; height: 653px;">
-                </div>
+<div class="container" style="padding-left: 20%; padding-right: 20%;">
+    <div class="container-row" style="padding: 3%;">
+        <img src="/static/instaclone/media/pizza.jpg" class="Instagram-card-user-image" style="width: 700px; height: 950px;">
+        
+        <div class="Instagram-card-content">
+            <a class="instagram-card-icon" href="#"><i class="far fa-heart"></i></a>
+            <a class="instagram-card-icon" href="#"><i class="far fa-comment"></i></a>
+            <a class="instagram-card-icon left" href="#"><i class="far fa-bookmark"></i></a>
+            <p class="Likes">1,958 Likes</p>
+            <p>
+                <a class="Instagram-card-content-user" href="#">jay_O</a> Who wants some pizza?
+            </p>
+            <p><a class="comments" href="#">View all 99 comments</p>
+            <p><a class="user-comments" href="#">fine_babe</a> You just made me hungry...</p>
+            
 
-                <div class="Instagram-card-content">
-                    <a class="instagram-card-icon" href="#"><i class="far fa-heart"></i></a>
-                    <a class="instagram-card-icon" href="#"><i class="far fa-comment"></i></a>
-                    <a class="instagram-card-icon left" href="#"><i class="far fa-bookmark"></i></a>
-                    <p class="Likes">345 Likes</p>
-                    <p>
-                        <a class="Instagram-card-content-user" href="#">foodiecon</a> There's nothing like good food in a good restaurant!
-                    </p>
-                    <p class="comments">View all 345 comments</p>
-                    <p><a class="user-comments" href="#">blessed_by_Jah</a> Good food keeps the soul young, man. </p>
-                    <p class="date">19 MINUTES AGO</p>
-                    <hr>
-                </div>
-
-                <div class="Instagram-card-footer">
-                    <a class="footer-action-icons" href="#"><i class="fa fa-heart-o"></i></a>
-                    <input class="comments-input" type="text" placeholder="Add a comment...">
-                </div>
-
+            <div class="Instagram-card-footer">
+                <a class="footer-action-icons" href="#"><i class="fa fa-heart-o"></i></a>
+                <input class="comments-input" type="text" placeholder="Add a comment..." style="border-style:hidden; font-size: medium;">
             </div>
-        </article>
-    </section>
-</main>
+
+            <p class="when" style="font-size: small; font-style:italic;">58 minutes ago</p>
+        </div>
+    </div>
+
+    <div class="container-row" style="padding: 3%;">
+        <img src= "https://images.pexels.com/photos/8753752/pexels-photo-8753752.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" style="width: 700px; height: 950px;">
+        
+        <div class="Instagram-card-content">
+            <a class="instagram-card-icon" href="#"><i class="far fa-heart"></i></a>
+            <a class="instagram-card-icon" href="#"><i class="far fa-comment"></i></a>
+            <a class="instagram-card-icon left" href="#"><i class="far fa-bookmark"></i></a>
+            <p class="Likes">345 Likes</p>
+            <p>
+                <a class="Instagram-card-content-user" href="#">foodiecon</a> There's nothing like good food in a good restaurant!
+            </p>
+            <p><a class="comments" href="#">View all 345 comments</p>
+            <p><a class="user-comments" href="#">blessed_by_Jah</a> Good food keeps the soul young, man. </p>
+            
+
+            <div class="Instagram-card-footer">
+                <a class="footer-action-icons" href="#"><i class="fa fa-heart-o"></i></a>
+                <input class="comments-input" type="text" placeholder="Add a comment..." style="border-style:hidden; font-size: medium;">
+            </div>
+
+            <p class="when" style="font-size: small; font-style:italic;">19 minutes ago</p>
+
+        </div>
+    </div>
+
+</div>            
+
 {% endblock %} 
