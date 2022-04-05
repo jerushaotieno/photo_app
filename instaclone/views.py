@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from .models import Image, Profile, Comments, FollowUser
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def user_feed(request):
     images = Image.objects.all()
-    return render(request, 'index.html')
+    return render(request, 'index.html', {'images':images})
 
 
+@login_required(login_url='/accounts/login/')
 def user_profile(request):
     return render(request, 'user_profile.html') 
 
