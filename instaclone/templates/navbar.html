@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+{% load static %}
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/840px-Instagram_logo.svg.png" height="50px" width="120px" id="logo">
-            <input type="text" placeholder="search">
-            <nav>
-                    <a href="{% url 'user_profile' %}">
-                        <p>
-                            {% load static %} <img src="{% static "instaclone/media/instaclone1.jpg" %}" height="100px" width="100px" alt="navbar_pic"/>  
-                            <p>View Profile</p>
-                        </p> 
-                    </a>                          
-                </div>
-            </nav>
+            
+            <div class="col-sm-4 col-md-4 navbar-right">
+                <form class="navbar-form" role="search" action="{% url 'search' %}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search e.g. cloths, food, etc." name="instasearch">
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-sm-4 col-md-4 navbar-right">
+                <a href="{% url 'user_profile' %}">
+                    <p>
+                        {% load static %} <img src="{% static "instaclone/media/instaclone1.jpg" %}" height="100px" width="100px" alt="navbar_pic"/>  
+                        <p>View Profile</p>
+                    </p> 
+                </a>                          
+            </div>
         </div>
     </div>
 </nav>
-</body>
